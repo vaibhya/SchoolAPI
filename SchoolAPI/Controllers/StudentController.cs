@@ -20,23 +20,20 @@ namespace SchoolAPI.Controllers
 
         }
 
-        [HttpGet]
-        [Route("GetStudents")]
-        public IActionResult GetAllStudents(string? firstName, string? lastName, string? email, int? page=1, int? limit = 10)
+        [HttpGet("GetStudents")]
+        public IActionResult GetAllStudents(string? firstName, string? lastName, string? email, int? page, int? limit)
         {
             var students = _service.GetAllStudents(firstName,lastName,email,page,limit);
             return Ok(students);
         }
 
-        [HttpGet]
-        [Route("GetStudent/{id}")]
+        [HttpGet("GetStudent /{id}")]
         public IActionResult GetStudentById(int id)
         {
             return Ok(_service.GetStudentById(id));
         }
 
-        [HttpPost]
-        [Route("PostStudent")]
+        [HttpPost("PostStudent")]
         public IActionResult CreateStudent(StudentCreateDTO studentDto)
         {
             if (!ModelState.IsValid)
@@ -47,15 +44,13 @@ namespace SchoolAPI.Controllers
             return Ok(_service.AddStudent(studentDto));
         }
 
-        [HttpPut]
-        [Route("UpdateStudent")]
+        [HttpPut("UpdateStudent")]
         public IActionResult UpdateStudent(StudentUpdateDTO studentDto)
         {
             return Ok(_service.UpdateStudent(studentDto));
         }
 
-        [HttpDelete]
-        [Route("DeleteStudent/{id}")]
+        [HttpDelete("DeleteStudent/{id}")]
         public IActionResult DeleteStudent(int id)
         {
             var response = _service.DeleteStudent(id);
