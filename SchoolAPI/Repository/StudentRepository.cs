@@ -12,7 +12,7 @@ namespace SchoolAPI.Repository
             _dbContext = dbContext;
         }
         
-        int IStudentRepository.Add(Student student)
+        public int Add(Student student)
         {
             _dbContext.Students.Add(student);
             _dbContext.SaveChanges();

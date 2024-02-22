@@ -13,6 +13,8 @@ namespace SchoolAPI.Configuration
             CreateMap<Student,StudentUpdateDTO>();
             CreateMap<Student, StudentResponseDTO>();
             CreateMap<StudentCreateDTO, Student>();
+            CreateMap<UserCreateDTO, User>();
+            CreateMap<User, UserResponseDTO>();
                 
         }
     }
